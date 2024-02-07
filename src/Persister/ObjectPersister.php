@@ -13,7 +13,7 @@ namespace FOS\ElasticaBundle\Persister;
 
 use Elastica\Document;
 use Elastica\Exception\BulkException;
-use Elastica\Type;
+use Elastica\Index;
 use FOS\ElasticaBundle\Transformer\ModelToElasticaTransformerInterface;
 use Psr\Log\LoggerInterface;
 
@@ -38,7 +38,7 @@ class ObjectPersister implements ObjectPersisterInterface
      * @param string                              $objectClass
      * @param array                               $fields
      */
-    public function __construct(Type $type, ModelToElasticaTransformerInterface $transformer, $objectClass, array $fields, array $options = [])
+    public function __construct(Index $type, ModelToElasticaTransformerInterface $transformer, $objectClass, array $fields, array $options = [])
     {
         $this->type = $type;
         $this->transformer = $transformer;
