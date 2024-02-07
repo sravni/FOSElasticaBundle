@@ -60,7 +60,7 @@ class ElasticaToModelTransformerCollection implements ElasticaToModelTransformer
     {
         $sorted = [];
         foreach ($elasticaObjects as $object) {
-            $sorted[$object->getType()][] = $object;
+            $sorted[explode('.', $object->getIndex())[0]][] = $object;
         }
 
         $transformed = [];
@@ -80,8 +80,8 @@ class ElasticaToModelTransformerCollection implements ElasticaToModelTransformer
 
         $result = [];
         foreach ($elasticaObjects as $object) {
-            if (array_key_exists((string) $object->getId(), $transformed[$object->getType()])) {
-                $result[] = $transformed[$object->getType()][(string) $object->getId()];
+            if (array_key_exists((string) $object->getId(), $transformed[explode('.', $object->getIndex())[0]])) {
+                $result[] = $transformed[explode('.', $object->getIndex())[0]][(string) $object->getId()];
             }
         }
 
