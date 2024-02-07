@@ -46,7 +46,7 @@ class Index extends BaseIndex
             return $this->typeCache[$type];
         }
 
-        return $this->typeCache[$type] = parent::getType($type);
+        return $this->typeCache[$type] = $this;
     }
 
     /**

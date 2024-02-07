@@ -28,7 +28,7 @@ class MappingBuilder
     {
         $typeMappings = [];
         foreach ($indexConfig->getTypes() as $typeConfig) {
-            $typeMappings[$typeConfig->getName()] = $this->buildTypeMapping($typeConfig);
+            $typeMappings = $this->buildTypeMapping($typeConfig); //only 1 type
         }
 
         $mapping = [];
